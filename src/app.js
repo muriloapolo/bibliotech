@@ -1,21 +1,27 @@
-import express from 'express'
+import express from "express";
+// import bodyParser from "express";
 const app = express();
+// app.use(bodyParser)
 
-
-
-app.get('/', (req, res) => {  
-    res.sendFile(__dirname + '/public/index.html')
-    
-    // res.send('Funcionou')
+//Listando arquivos
+app.get("/", (req, res) => {
+  res.send("Hello World");
 });
-// app.post();
-// app.put();
-// app.delete();
+//Listando Por ID
+app.get("/details/:id", (req, res) => {
+    res.send(`Detalhes from ${req.params.id}`);
+  });
+//Alterando arquivos
+app.put("/", (req, res) => {
+  res.send("Alterando arquivos na Raiz.");
+});
+//Adicionando arquivos
+app.post("/", (req, res) => {
+  res.send("Adicionando arquivos na Raiz.");
+});
+//Deletando arquivos
+app.delete("/", (req, res) => {
+  res.send("Deletando arquivos na Raiz.");
+});
 
-
-
-
-
-
-
-export default app
+export default app;
